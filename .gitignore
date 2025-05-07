@@ -1,0 +1,74 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE - IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - Eclipse
+.settings/
+.classpath
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+*.log
+logs/
+
+# Test Reports Directory
+test-reports/*
+!test-reports/.gitkeep
+
+# OS specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Test specific
+debug.log
+geckodriver.log
+chromedriver.log
+*.dump
+*.dumpstream
+
+# Configuration files that might contain sensitive data
+src/test/resources/config/local.properties
+src/test/resources/config/secret.properties
+
+# WebDriver binaries
+drivers/
+.webdriver/ 

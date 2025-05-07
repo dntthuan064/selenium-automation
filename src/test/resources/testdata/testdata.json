@@ -1,0 +1,11 @@
+{
+    "webForm": {
+        "textInput": "Test Input",
+        "password": "password123",
+        "textarea": "This is a test message",
+        "option": "Option 1",
+        "color": "#FF0000",
+        "date": "2024-03-20",
+        "range": 5
+    }
+} 
