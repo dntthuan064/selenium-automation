@@ -1,23 +1,24 @@
 package steps;
 
-import io.cucumber.java.en.*;
-import io.cucumber.java.Before;
-import io.cucumber.java.After;
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
-import pages.WebFormPage;
-import utils.DriverManager;
-import utils.ConfigManager;
-import utils.WaitUtils;
-import utils.TestDataManager;
-import utils.LoggerUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import java.time.Duration;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.WebFormPage;
+import utils.DriverManager;
+import utils.LoggerUtils;
 import utils.ReportManager;
+import utils.TestDataManager;
 
 public class WebFormSteps {
   private WebDriver driver;
