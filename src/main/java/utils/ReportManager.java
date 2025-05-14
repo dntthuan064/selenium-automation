@@ -33,6 +33,9 @@ public class ReportManager {
   private static void setupExtentReports() {
     String reportPath = String.format("%s/%s/manual-reports", REPORT_DIR, RUN_TIMESTAMP);
 
+    // Create base reports directory first
+    createDirectories(REPORT_DIR);
+
     // Create directories if they don't exist
     createDirectories(reportPath);
     createDirectories(SCREENSHOTS_FOLDER);

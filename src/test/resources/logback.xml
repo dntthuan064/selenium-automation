@@ -20,6 +20,7 @@
     <encoder>
       <pattern>${LOG_PATTERN}</pattern>
     </encoder>
+    <prudent>true</prudent>
   </appender>
 
   <!-- Error File Appender -->
@@ -35,6 +36,7 @@
     <encoder>
       <pattern>${LOG_PATTERN}</pattern>
     </encoder>
+    <prudent>true</prudent>
   </appender>
 
   <!-- Root Logger -->

@@ -50,8 +50,8 @@ local.properties
 logs/
 
 # Test Reports Directory
+test-reports/
 test-reports/*
-!test-reports/.gitkeep
 allure-results/
 
 # OS specific
