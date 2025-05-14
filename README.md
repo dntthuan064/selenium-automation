@@ -55,6 +55,7 @@ src/
     └── resources/
         ├── features/      # Cucumber feature files
         └── testdata/      # Test data files
+        └── config/        # Configuration files
 ```
 
 ## Setup
@@ -71,8 +72,8 @@ src/
    ```
 
 3. Configure test environment:
-   - Update `src/main/resources/config/config.properties` with your test environment details
-   - Set up browser preferences in `src/main/resources/config/browser.properties`
+   - Update `src/test/resources/config.properties` and `src/test/resources/config/qa.properties` with your test environment details
+   - Test data is in `src/test/resources/testdata/`
 
 4. Verify setup:
    ```bash
@@ -108,9 +109,8 @@ src/
    - Create separate files for different test scenarios
 
 4. **Configuration Management**
-   - Environment-specific configs in `src/main/resources/config/`
+   - Environment-specific configs in `src/test/resources/config/`
    - Use `config.properties` for general settings
-   - Use `browser.properties` for browser-specific settings
 
 ### Best Practices
 
@@ -197,16 +197,45 @@ mvn test -Dparallel=true -DthreadCount=4
 
 ## Reports
 
-- Extent Reports: `test-output/ExtentReport.html`
-  - Detailed test execution summary
-  - Screenshots of failed tests
-  - Test duration and status
+### Test Reports Location
+- Extent Cucumber Report: `test-reports/extent-cucumber-report.html`
+- Manual Screenshot Report: `test-reports/{timestamp}/manual-reports/manual-report.html`
+- Screenshots: `test-reports/{timestamp}/screenshots/`
+
+### Viewing Reports
+You can view the HTML reports in two ways:
+
+1. **File Explorer method**:
+   - Navigate to the `test-reports` folder in your project directory
+   - For the main Cucumber report: open `extent-cucumber-report.html`
+   - For the manual report with screenshots: open `test-reports/{timestamp}/manual-reports/manual-report.html`
+
+2. **Using Command Line**:
+   ```bash
+   # Open the main Cucumber report
+   start test-reports\extent-cucumber-report.html
+   
+   # Open the latest manual report with screenshots (Windows)
+   start test-reports\{timestamp}\manual-reports\manual-report.html
+   
+   # Open reports on Mac/Linux
+   open test-reports/extent-cucumber-report.html
+   open test-reports/{timestamp}/manual-reports/manual-report.html
+   ```
+
+### Report Features
+- Extent Cucumber Report:
+  - Dashboard view with test execution summary
+  - Feature-wise breakdown of scenarios
+  - Step definitions with status
+  - Test execution timeline
   - Environment details
 
-- Cucumber Reports: `target/cucumber-reports`
-  - Feature-wise test results
-  - Step definitions
-  - Test execution timeline
+- Manual Screenshot Report:
+  - Detailed test steps with timestamps
+  - Screenshots captured during test execution
+  - Browser and system information
+  - Error logs and stack traces for failures
 
 ## Code Quality
 
@@ -246,4 +275,4 @@ mvn test -Dparallel=true -DthreadCount=4
 - Follow Java coding conventions
 - Write meaningful commit messages
 - Add appropriate comments and documentation
-- Include unit tests for new features 
+- Include unit tests for new features

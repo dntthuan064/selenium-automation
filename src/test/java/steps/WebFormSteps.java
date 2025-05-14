@@ -10,7 +10,6 @@ import org.testng.Assert;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,26 +35,30 @@ public class WebFormSteps {
 
   @After
   public void tearDown() {
+    LoggerUtils.info("Tearing down test environment");
+
     try {
       if (driver != null) {
-        LoggerUtils.info("Tearing down test environment");
-        ReportManager.addScreenshot(driver, "final-state");
-        ReportManager.endTest();
-        try {
-          driver.quit();
-        } catch (Exception e) {
-          LoggerUtils.warn("Error during driver quit, attempting to close: " + e.getMessage());
-          try {
-            driver.close();
-          } catch (Exception closeEx) {
-            LoggerUtils.warn("Error during driver close: " + closeEx.getMessage());
-          }
-        }
-        driver = null;
+        DriverManager.safeScreenshot("final-state");
       }
     } catch (Exception e) {
-      LoggerUtils.error("Error during teardown", e);
+      LoggerUtils.error("Failed to capture final screenshot", e);
     }
+
+    try {
+      ReportManager.endTest();
+    } catch (Exception e) {
+      LoggerUtils.error("Failed to end test report", e);
+    }
+
+    try {
+      DriverManager.quitDriver();
+      LoggerUtils.info("WebDriver quit successfully");
+    } catch (Exception e) {
+      LoggerUtils.error("Error during driver cleanup", e);
+    }
+
+    driver = null;
   }
 
   @Given("I am on the web form page")
@@ -68,17 +71,17 @@ public class WebFormSteps {
     webFormPage.enterTextInput(text);
   }
 
-  @And("I enter {string} in the password field")
+  @When("I enter {string} in the password field")
   public void iEnterInThePasswordField(String password) {
     webFormPage.enterPassword(password);
   }
 
-  @And("I enter {string} in the textarea field")
+  @When("I enter {string} in the textarea field")
   public void iEnterInTheTextareaField(String text) {
     webFormPage.enterTextArea(text);
   }
 
-  @And("I click the submit button")
+  @When("I click the submit button")
   public void iClickTheSubmitButton() {
     webFormPage.clickSubmitButton();
   }
@@ -91,7 +94,7 @@ public class WebFormSteps {
   @When("I enter {string} in the first name field")
   public void enterFirstName(String firstName) {
     WebElement firstNameField = wait
-        .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.id("my-text-id")));
+      .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.id("my-text-id")));
     firstNameField.clear();
     firstNameField.sendKeys(firstName);
     LoggerUtils.info("Entered first name: " + firstName);
@@ -101,7 +104,7 @@ public class WebFormSteps {
   @When("I enter {string} in the last name field")
   public void enterLastName(String lastName) {
     WebElement lastNameField = wait
-        .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.name("my-password")));
+      .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.name("my-password")));
     lastNameField.clear();
     lastNameField.sendKeys(lastName);
     LoggerUtils.info("Entered last name: " + lastName);
@@ -110,7 +113,7 @@ public class WebFormSteps {
   @When("I enter {string} in the email field")
   public void enterEmail(String email) {
     WebElement emailField = wait
-        .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.name("my-textarea")));
+      .until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.name("my-textarea")));
     emailField.clear();
     emailField.sendKeys(email);
     LoggerUtils.info("Entered email: " + email);

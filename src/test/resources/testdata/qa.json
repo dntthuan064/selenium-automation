@@ -1,28 +1,69 @@
 {
-    "webForm": {
-        "textInput": ["John", "Jane", "Test User"],
-        "password": ["Test@123", "Pass@123", "Secure@123"],
-        "textarea": ["This is a test message", "Another test message", "Sample text"],
-        "option": ["Option 1", "Option 2", "Option 3"],
-        "color": ["#ff0000", "#00ff00", "#0000ff"],
-        "date": ["2024-05-08", "2024-05-09", "2024-05-10"],
-        "range": [1, 5, 10]
+  "webForm": {
+    "textInput": [
+      "John",
+      "Jane",
+      "Test User"
+    ],
+    "password": [
+      "Test@123",
+      "Pass@123",
+      "Secure@123"
+    ],
+    "textarea": [
+      "This is a test message",
+      "Another test message",
+      "Sample text"
+    ],
+    "option": [
+      "Option 1",
+      "Option 2",
+      "Option 3"
+    ],
+    "color": [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff"
+    ],
+    "date": [
+      "2024-05-08",
+      "2024-05-09",
+      "2024-05-10"
+    ],
+    "range": [
+      1,
+      5,
+      10
+    ]
+  },
+  "validation": {
+    "invalidEmail": [
+      "test",
+      "test@",
+      "test@test",
+      "@test.com"
+    ],
+    "invalidPassword": [
+      "123",
+      "abc",
+      "test"
+    ],
+    "invalidDate": [
+      "2024-13-45",
+      "2024-02-30",
+      "2024-00-00"
+    ]
+  },
+  "testUsers": {
+    "admin": {
+      "username": "admin",
+      "password": "admin123",
+      "role": "Administrator"
     },
-    "validation": {
-        "invalidEmail": ["test", "test@", "test@test", "@test.com"],
-        "invalidPassword": ["123", "abc", "test"],
-        "invalidDate": ["2024-13-45", "2024-02-30", "2024-00-00"]
-    },
-    "testUsers": {
-        "admin": {
-            "username": "admin",
-            "password": "admin123",
-            "role": "Administrator"
-        },
-        "user": {
-            "username": "user",
-            "password": "user123",
-            "role": "Regular User"
-        }
+    "user": {
+      "username": "user",
+      "password": "user123",
+      "role": "Regular User"
     }
-} 
+  }
+}

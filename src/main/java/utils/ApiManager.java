@@ -15,7 +15,7 @@ public class ApiManager {
   public static HttpResponse<String> get(String url, Map<String, String> headers) {
     try {
       HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().uri(URI.create(url)).GET()
-          .timeout(Duration.ofSeconds(30));
+        .timeout(Duration.ofSeconds(30));
 
       if (headers != null) {
         headers.forEach(requestBuilder::header);
@@ -32,7 +32,7 @@ public class ApiManager {
     try {
       String jsonBody = mapper.writeValueAsString(body);
       HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().uri(URI.create(url))
-          .POST(HttpRequest.BodyPublishers.ofString(jsonBody)).timeout(Duration.ofSeconds(30));
+        .POST(HttpRequest.BodyPublishers.ofString(jsonBody)).timeout(Duration.ofSeconds(30));
 
       if (headers != null) {
         headers.forEach(requestBuilder::header);
@@ -49,7 +49,7 @@ public class ApiManager {
     try {
       String jsonBody = mapper.writeValueAsString(body);
       HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().uri(URI.create(url))
-          .PUT(HttpRequest.BodyPublishers.ofString(jsonBody)).timeout(Duration.ofSeconds(30));
+        .PUT(HttpRequest.BodyPublishers.ofString(jsonBody)).timeout(Duration.ofSeconds(30));
 
       if (headers != null) {
         headers.forEach(requestBuilder::header);
@@ -65,7 +65,7 @@ public class ApiManager {
   public static HttpResponse<String> delete(String url, Map<String, String> headers) {
     try {
       HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().uri(URI.create(url)).DELETE()
-          .timeout(Duration.ofSeconds(30));
+        .timeout(Duration.ofSeconds(30));
 
       if (headers != null) {
         headers.forEach(requestBuilder::header);
