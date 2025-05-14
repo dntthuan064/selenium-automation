@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extentreports>
-    <configuration>
-        <!-- report theme -->
-        <theme>standard</theme>
-        
-        <!-- document encoding -->
-        <encoding>UTF-8</encoding>
-        
-        <!-- protocol for script and stylesheets -->
-        <protocol>https</protocol>
-        
-        <!-- title of the document -->
-        <documentTitle>Test Automation Report</documentTitle>
-        
-        <!-- report name -->
-        <reportName>Web Form Automation Test Report</reportName>
-        
-        <!-- report headline -->
-        <reportHeadline>Web Form Test Automation Results</reportHeadline>
-        
-        <!-- global date format override -->
-        <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
-        
-        <!-- global time format override -->
-        <timeFormat>HH:mm:ss</timeFormat>
-        
-        <!-- custom javascript -->
-        <scripts>
-            <![CDATA[
-                $(document).ready(function() {
-                    $('.logo-content').append('<img src="https://www.selenium.dev/images/selenium_logo_square_green.png" style="height: 50px; margin-right: 10px;">');
-                });
-            ]]>
-        </scripts>
-        
-        <!-- custom styles -->
-        <styles>
-            <![CDATA[
-                .logo-content { display: flex; align-items: center; }
-                .test-content { margin-top: 20px; }
-                .test-content .test { margin-bottom: 20px; }
-                .test-content .test .test-detail { padding: 10px; }
-                .test-content .test .test-detail .test-status { font-weight: bold; }
-                .test-content .test .test-detail .test-status.pass { color: #28a745; }
-                .test-content .test .test-detail .test-status.fail { color: #dc3545; }
-            ]]>
-        </styles>
-    </configuration>
+  <configuration>
+    <!-- report theme -->
+    <theme>standard</theme>
+
+    <!-- document encoding -->
+    <encoding>UTF-8</encoding>
+
+    <!-- protocol for script and stylesheets -->
+    <protocol>https</protocol>
+
+    <!-- title of the document -->
+    <documentTitle>Test Automation Report</documentTitle>
+
+    <!-- report name -->
+    <reportName>Web Form Automation Test Report</reportName>
+
+    <!-- report headline -->
+    <reportHeadline>Web Form Test Automation Results</reportHeadline>
+
+    <!-- global date format override -->
+    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+
+    <!-- global time format override -->
+    <timeFormat>HH:mm:ss</timeFormat>
+
+    <!-- custom javascript -->
+    <scripts>
+      <![CDATA[
+      $(document).ready(function() {
+        $('.logo-content').append('<img src="https://www.selenium.dev/images/selenium_logo_square_green.png" style="height: 50px; margin-right: 10px;">');
+      });
+    ]]>
+    </scripts>
+
+    <!-- custom styles -->
+    <styles>
+      <![CDATA[
+        .logo-content { display: flex; align-items: center; }
+        .test-content { margin-top: 20px; }
+        .test-content .test { margin-bottom: 20px; }
+        .test-content .test .test-detail { padding: 10px; }
+        .test-content .test .test-detail .test-status { font-weight: bold; }
+        .test-content .test .test-detail .test-status.pass { color: #28a745; }
+        .test-content .test .test-detail .test-status.fail { color: #dc3545; }
+      ]]>
+    </styles>
+  </configuration>
 </extentreports> 

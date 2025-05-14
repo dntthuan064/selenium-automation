@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>selenium.automation</groupId>
@@ -11,12 +12,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
     <maven.compiler.release>21</maven.compiler.release>
 
     <!-- Global variable for dependencies -->
-    <selenium.version>4.18.1</selenium.version>
+    <selenium.version>4.10.0</selenium.version>    <!-- LTS version -->
     <testng.version>7.9.0</testng.version>
     <aspectj.version>1.9.21</aspectj.version>
     <cucumber.version>7.15.0</cucumber.version>
@@ -57,6 +56,13 @@
       <version>${extentreports.version}</version>
     </dependency>
 
+    <!-- Extent Reports-Cucumber Adapter -->
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber7-adapter</artifactId>
+      <version>1.14.0</version>
+    </dependency>
+
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
@@ -88,12 +94,6 @@
       <version>2.16.1</version>
     </dependency>
 
-    <!-- Extent Reports Cucumber Adapter -->
-    <dependency>
-      <groupId>tech.grasshopper</groupId>
-      <artifactId>extentreports-cucumber7-adapter</artifactId>
-      <version>1.14.0</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -103,8 +103,6 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.12.1</version>
         <configuration>
-          <source>21</source>
-          <target>21</target>
           <release>21</release>
         </configuration>
       </plugin>

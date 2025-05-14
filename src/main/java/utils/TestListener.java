@@ -3,6 +3,7 @@ package utils;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.openqa.selenium.WebDriver;
 
 public class TestListener implements ITestListener {
   @Override
@@ -22,10 +23,17 @@ public class TestListener implements ITestListener {
   public void onTestFailure(ITestResult result) {
     LoggerUtils.error("Test failed: " + result.getName());
     ReportManager.logFail("Test failed: " + result.getThrowable().getMessage());
-    if (DriverManager.getDriver() != null) {
-      ReportManager.addScreenshot(DriverManager.getDriver(), "test-failure");
+
+    try {
+      WebDriver driver = DriverManager.getDriver();
+      if (driver != null) {
+        ReportManager.addScreenshot(driver, "test-failure-" + result.getName());
+      }
+    } catch (Exception e) {
+      LoggerUtils.error("Could not capture failure screenshot", e);
+    } finally {
+      ReportManager.endTest();
     }
-    ReportManager.endTest();
   }
 
   @Override

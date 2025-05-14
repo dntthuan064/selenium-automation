@@ -52,6 +52,7 @@ logs/
 # Test Reports Directory
 test-reports/*
 !test-reports/.gitkeep
+allure-results/
 
 # OS specific
 .DS_Store

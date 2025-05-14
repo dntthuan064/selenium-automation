@@ -3,32 +3,31 @@ package utils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class ScreenshotUtils {
 
-  public static String takeScreenshot(WebDriver driver, String testName) {
-    String screenshotPath = ConfigManager.getProperty("screenshot.path");
-    String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-    String fileName = testName + "_" + timestamp + ".png";
-
+  public static String takeScreenshot(WebDriver driver, String filePath) {
     try {
-      Path path = Paths.get(screenshotPath);
+      Path path = Paths.get(filePath).getParent();
       if (!Files.exists(path)) {
         Files.createDirectories(path);
       }
 
       File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-      File destFile = new File(screenshotPath + fileName);
-      Files.copy(screenshot.toPath(), destFile.toPath());
+      File destFile = new File(filePath + ".png");
+      Files.copy(screenshot.toPath(), destFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
       return destFile.getAbsolutePath();
+    } catch (org.openqa.selenium.WebDriverException e) {
+      // WebDriver session is closed or invalid
+      LoggerUtils.error("WebDriver session is not available for screenshot: " + e.getMessage());
+      return null;
     } catch (IOException e) {
       e.printStackTrace();
       return null;

@@ -106,12 +106,12 @@ public class AbstractPage {
   }
 
   public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator,
-      String expectedItem) {
+    String expectedItem) {
     getElement(driver, parentLocator).click();
     sleepInSecond(1);
     explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
     List<WebElement> allItems = explicitWait
-        .until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childItemLocator)));
+      .until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childItemLocator)));
 
     for (WebElement item : allItems) {
       if (item.getText().trim().equals(expectedItem)) {
